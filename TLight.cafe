@@ -1,0 +1,66 @@
+mod! SWITCH {
+  [Switch]
+  ops on off : -> Switch {constr} .
+  eq (on = off) = false .
+}
+
+mod* TLIGHT {
+  pr(SWITCH)
+  [Sys]
+  op init : -> Sys {constr} .
+  -- transitions
+  op ch1 : Sys -> Sys {constr} .
+  op ch2 : Sys -> Sys {constr} .
+  op ch3 : Sys -> Sys {constr} .
+  op ch4 : Sys -> Sys {constr} .
+  op ch5 : Sys -> Sys {constr} .
+  -- two observers, standing for red light and green light
+  op redl : Sys -> Switch .
+  op grnl : Sys -> Switch .
+  -- vars
+  var S : Sys .
+  -- inititial state
+  eq redl(init) = on .     -- red light
+  eq grnl(init) = off .    -- green light
+  -- ch1, changing red light to green light
+  op c-ch1 : Sys -> Bool .
+  eq c-ch1(S) = (redl(S) = on and grnl(S) = off) .
+  ceq redl(ch1(S)) = off if c-ch1(S) .
+  ceq grnl(ch1(S)) = on if c-ch1(S) .
+  ceq ch1(S) = S if not c-ch1(S) .
+  -- ch2
+  op c-ch2 : Sys -> Bool .
+  eq c-ch2(S) = (redl(S) = off and grnl(S) = on) .
+  ceq redl(ch2(S)) = on if c-ch2(S) .
+  ceq grnl(ch2(S)) = off if c-ch2(S) .
+  ceq ch2(S) = S if not c-ch2(S) .
+  -- ch3
+  op c-ch3 : Sys -> Bool .
+  eq c-ch3(S) = (redl(S) = off and grnl(S) = off) .
+  ceq redl(ch3(S)) = on if c-ch3(S) .
+  ceq grnl(ch3(S)) = on if c-ch3(S) .
+  ceq ch3(S) = S if not c-ch3(S) .
+  -- ch4
+  op c-ch4 : Sys -> Bool .
+  eq c-ch4(S) = (redl(S) = on and grnl(S) = on) .
+  ceq redl(ch4(S)) = off if c-ch4(S) .
+  ceq grnl(ch4(S)) = off if c-ch4(S) .
+  ceq ch4(S) = S if not c-ch4(S) .
+  -- ch5
+  op c-ch5 : Sys -> Bool .
+  eq c-ch5(S) = (redl(S) = on and grnl(S) = on) .
+  ceq redl(ch5(S)) = on if c-ch5(S) .
+  ceq grnl(ch5(S)) = off if c-ch5(S) .
+  ceq ch5(S) = S if not c-ch5(S) .
+--
+-- Properties to prove
+--
+  op inv1 : Sys -> Bool
+  eq inv1(S)
+     = (not (redl(S) = on and grnl(S) = on)) .
+
+-- a lemma
+  op inv2 : Sys -> Bool
+  eq inv2(S)
+     = (not (redl(S) = off and grnl(S) = off)) .
+}

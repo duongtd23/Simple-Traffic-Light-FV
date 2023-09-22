@@ -1,0 +1,15 @@
+load TLight.cafe .
+
+ipsgopen TLIGHT .
+  inv inv1(S:Sys) .
+  inv inv2(S:Sys) .
+  generate inv1(S:Sys) induction on S:Sys .
+  generate inv2(S:Sys) induction on S:Sys .
+close
+
+set-output proof.cafe .
+:save-proof .
+
+eof
+
+load input.cafe .

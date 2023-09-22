@@ -1,0 +1,243 @@
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  red inv1(init) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = off .
+  eq redl(s) = on .
+  red inv1(s) implies inv1(ch1(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = off .
+  eq (redl(s) = on) = false .
+  red inv1(s) implies inv1(ch1(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (grnl(s) = off) = false .
+  red inv1(s) implies inv1(ch1(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq redl(s) = off .
+  eq grnl(s) = on .
+  red inv1(s) implies inv1(ch2(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq redl(s) = off .
+  eq (grnl(s) = on) = false .
+  red inv1(s) implies inv1(ch2(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (redl(s) = off) = false .
+  red inv1(s) implies inv1(ch2(s)) .
+close
+
+--> true, use inv2 as a lemma
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = off .
+  eq redl(s) = off .
+  red inv2(s) implies inv1(s) implies inv1(ch3(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = off .
+  eq (redl(s) = off) = false .
+  red inv1(s) implies inv1(ch3(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (grnl(s) = off) = false .
+  red inv1(s) implies inv1(ch3(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = on .
+  eq redl(s) = on .
+  red inv1(s) implies inv1(ch4(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = on .
+  eq (redl(s) = on) = false .
+  red inv1(s) implies inv1(ch4(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (grnl(s) = on) = false .
+  red inv1(s) implies inv1(ch4(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = on .
+  eq redl(s) = on .
+  red inv1(s) implies inv1(ch5(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = on .
+  eq (redl(s) = on) = false .
+  red inv1(s) implies inv1(ch5(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (grnl(s) = on) = false .
+  red inv1(s) implies inv1(ch5(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  red inv2(init) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = off .
+  eq redl(s) = on .
+  red inv2(s) implies inv2(ch1(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = off .
+  eq (redl(s) = on) = false .
+  red inv2(s) implies inv2(ch1(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (grnl(s) = off) = false .
+  red inv2(s) implies inv2(ch1(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq redl(s) = off .
+  eq grnl(s) = on .
+  red inv2(s) implies inv2(ch2(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq redl(s) = off .
+  eq (grnl(s) = on) = false .
+  red inv2(s) implies inv2(ch2(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (redl(s) = off) = false .
+  red inv2(s) implies inv2(ch2(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = off .
+  eq redl(s) = off .
+  red inv2(s) implies inv2(ch3(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = off .
+  eq (redl(s) = off) = false .
+  red inv2(s) implies inv2(ch3(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (grnl(s) = off) = false .
+  red inv2(s) implies inv2(ch3(s)) .
+close
+
+--> true, use inv1 as a lemma
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = on .
+  eq redl(s) = on .
+  red inv1(s) implies inv2(s) implies inv2(ch4(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = on .
+  eq (redl(s) = on) = false .
+  red inv2(s) implies inv2(ch4(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (grnl(s) = on) = false .
+  red inv2(s) implies inv2(ch4(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = on .
+  eq redl(s) = on .
+  red inv2(s) implies inv2(ch5(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq grnl(s) = on .
+  eq (redl(s) = on) = false .
+  red inv2(s) implies inv2(ch5(s)) .
+close
+
+--> true
+open TLIGHT .
+  op s : -> Sys .
+  eq (grnl(s) = on) = false .
+  red inv2(s) implies inv2(ch5(s)) .
+close
+
+--> Time taken is 53ms
